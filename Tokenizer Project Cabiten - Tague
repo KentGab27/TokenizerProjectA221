@@ -1,0 +1,35 @@
+import java.util.Scanner; //Import the Scanner in Java
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner myObj = new Scanner(System.in);
+
+        //Prompts the user to input a text
+        System.out.println("Enter Text Here: ");
+        String input = myObj.nextLine();
+
+        //The Delimiter of the Code
+        myObj = new Scanner(input).useDelimiter(":");
+
+        //The trim() in Java removes all the leading and trailing spaces in the string.
+        while (myObj.hasNext()) {
+            String Text = myObj.next().trim();
+
+        //Check the type of Token and Prints it out
+            if (Text.matches("\\b\\w+\\s\\w+\\b")) {
+                System.out.println("Token: " + "Type of Token: Phrase: " + Text);
+            } else if (Text.matches("\\b\\d+\\b")) {
+                System.out.println("Token: " + "Type of Token: Number: " + Text);
+            } else if (Text.matches("\\b\\w+\\b")) {
+                System.out.println("Token: " + "Type of Token: Word: " + Text);
+            } else if (Text.matches("\\p{Punct}+")) {
+                System.out.println("Token: " + "Type of Token: Punctuation: " + Text);
+            } else if (Text.isEmpty()) {
+                System.out.println("Token: " + "Type of Token: End of Line");
+            } else {
+                System.out.println("Token: " + "Type of Token: Punctuation with word: " + Text);
+
+            }
+        }
+    }
+}

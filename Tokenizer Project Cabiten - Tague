@@ -15,15 +15,20 @@ public class Main {
         while (myObj.hasNext()) {
             String Text = myObj.next().trim();
 
+        //Borders to make the array list look organized
+            System.out.println("+----------------------------------------+");
+
         //Check the type of Token and Prints it out
             if (Text.matches("\\b\\w+\\s\\w+\\b")) {
                 System.out.println("Token: " + "Type of Token: Phrase: " + Text);
             } else if (Text.matches("\\b\\d+\\b")) {
                 System.out.println("Token: " + "Type of Token: Number: " + Text);
-            } else if (Text.matches("\\b\\w+\\b")) {
+            } else if (Text.matches("[a-zA-Z]+")) {
                 System.out.println("Token: " + "Type of Token: Word: " + Text);
             } else if (Text.matches("\\p{Punct}+")) {
                 System.out.println("Token: " + "Type of Token: Punctuation: " + Text);
+            } else if (Text.matches("\\d+[,.!?]*")){
+                System.out.println("Token: " + "Type of Token: Numbers with Punctuation: " + Text);
             } else if (Text.isEmpty()) {
                 System.out.println("Token: " + "Type of Token: End of Line");
             } else {
